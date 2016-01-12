@@ -60,7 +60,7 @@ const Editor = React.createClass({
 			placeholder: this.props.placeholder,
 			lineNumbers: lineNumbers,
 			autofocus: this.props.autoFocus,
-			readOnly: this.props.readOnly,
+			readOnly: this.props.readOnly ? 'nocursor' : false,
 			dragDrop: false,
 			theme: 'neo',
 			mode: this.props.mode
