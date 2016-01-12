@@ -1,0 +1,5 @@
+node_modules
+firebase.json
+.env
+public/app.css
+public/app.js
