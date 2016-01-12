@@ -4,7 +4,7 @@
  * Dependencies
  */
 
-import ActionTypes from '../constants/action-types';
+import * as ActionTypes from '../constants/action-types';
 
 
 /**
