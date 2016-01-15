@@ -6,7 +6,8 @@
 
 import React from 'react';
 
-import router from '../shared/router';
+import { transitionTo } from '../actions/transition';
+import store from '../shared/store';
 
 
 /**
@@ -17,17 +18,11 @@ const Link = React.createClass({
 	navigate: function (e) {
 		e.preventDefault();
 
-		let to = this.props.to;
-
-		if (!to) {
+		if (!this.props.to) {
 			throw new Error('Expected a target in Link');
 		}
 
-		if (to[0] === '/') {
-			to = to.slice(1);
-		}
-
-		router.navigate(to, { trigger: true });
+		store.dispatch(transitionTo(this.props.to));
 	},
 
 	render: function () {
