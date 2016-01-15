@@ -10,6 +10,7 @@ import React from 'react';
 
 import { userPath } from '../helpers/urls';
 import BucketList from '../components/bucket-list';
+import Breadcrumb from '../components/breadcrumb';
 import Actions from '../actions';
 import Link from '../components/link';
 
@@ -48,10 +49,9 @@ const BucketsPage = React.createClass({
 		return <div>
 			<div className="clearfix">
 				<div className="left">
-					<Link to={ userPath(user.username) } className="bold relative">
-						<img src={ user.profileImageURL } className="user-profile-image" />
-						{ user.username }
-					</Link>
+					<Breadcrumb image={ user.profileImageURL }>
+						<Link to={ userPath(user.username) } className="bold">{ user.username }</Link>
+					</Breadcrumb>
 				</div>
 
 				<div className="right">

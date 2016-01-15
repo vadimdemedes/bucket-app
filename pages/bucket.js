@@ -10,6 +10,7 @@ import slugify from 'slugg';
 import React from 'react';
 
 import { userPath, bucketPath } from '../helpers/urls';
+import Breadcrumb from '../components/breadcrumb';
 import Actions from '../actions';
 import Bucket from '../components/bucket';
 import Link from '../components/link';
@@ -57,14 +58,10 @@ const BucketPage = React.createClass({
 		let isReadOnly = !authenticatedUser || authenticatedUser.username !== this.props.params.user;
 
 		return <div>
-			<div>
-				<Link to={ userPath(user.username) } className="bold relative">
-					<img src={ user.profileImageURL } className="user-profile-image" />
-					{ user.username }
-				</Link>
-				<span className="mr1 ml1">/</span>
+			<Breadcrumb image={ user.profileImageURL }>
+				<Link to={ userPath(user.username) }>{ user.username }</Link>
 				<Link to={ bucketPath(user.username, bucket.slug) } className="bold">{ bucket.slug }</Link>
-			</div>
+			</Breadcrumb>
 
 			<Bucket
 				name={ bucket.name }
