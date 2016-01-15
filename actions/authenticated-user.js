@@ -53,6 +53,7 @@ export function setAuthenticatedUser (user) {
 
 export function logOut () {
 	return dispatch => {
+		User.logOut();
 		dispatch(setAuthenticatedUser(null));
 		dispatch(transitionTo(''));
 	};
