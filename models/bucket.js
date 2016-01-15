@@ -5,9 +5,9 @@
  */
 
 import Promise from 'pinkie-promise';
+import url from 'url-join';
 
 import Model from './base';
-import url from '../util/url';
 
 
 /**
