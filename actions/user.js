@@ -4,6 +4,8 @@
  * Dependencies
  */
 
+import Promise from 'pinkie-promise';
+
 import * as ActionTypes from '../constants/action-types';
 import serialize from '../util/serialize';
 import User from '../models/user';
@@ -19,7 +21,14 @@ import User from '../models/user';
  */
 
 export function loadUser (username) {
-	return dispatch => {
+	return (dispatch, getState) => {
+		let authenticatedUser = getState().authenticatedUser;
+
+		if (authenticatedUser && authenticatedUser.username === username) {
+			dispatch(setUser(authenticatedUser));
+			return Promise.resolve();
+		}
+
 		return User.find(username)
 			.then(user => {
 				dispatch(setUser(user));
