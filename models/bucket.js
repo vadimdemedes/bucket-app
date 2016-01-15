@@ -72,7 +72,7 @@ const Bucket = Model.extend({
 		let bucket = new Bucket({
 			userId: user.id,
 			name: 'New Bucket',
-			slug: 'new-bucket-' + ref.key(),
+			slug: 'new-bucket' + ref.key(),
 			id: ref.key()
 		}, { ref });
 
