@@ -29,14 +29,16 @@ function rows (state = [], action) {
 			return state;
 
 		case UPDATE_BUCKET_ROW:
-			state = [...state];
-			assign(state[action.data.index], action.data);
-			return state;
+			return state.map((row, index) => {
+				if (index === action.data.index) {
+					return assign({}, row, action.data);
+				}
+
+				return row;
+			});
 
 		case REMOVE_BUCKET_ROW:
-			state = [...state];
-			state.splice(action.data.index, 1);
-			return state;
+			return state.filter((row, index) => index !== action.data.index);
 
 		default:
 			return state;
