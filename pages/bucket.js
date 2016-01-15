@@ -40,6 +40,7 @@ const BucketPage = React.createClass({
 		let actions = this.props.actions;
 
 		actions.setBucket(null);
+		actions.setBucketRows([]);
 	},
 
 	render: function () {
