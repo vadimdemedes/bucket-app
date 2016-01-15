@@ -4,7 +4,7 @@
  * Dependencies
  */
 
-import { transitionTo } from './transitions';
+import { transitionTo } from './transition';
 import * as ActionTypes from '../constants/action-types';
 import serialize from '../util/serialize';
 import User from '../models/user';

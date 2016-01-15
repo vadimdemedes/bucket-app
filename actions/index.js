@@ -6,9 +6,9 @@
 
 import assign from 'object-assign';
 
-import * as TransitionActions from './transitions';
-import * as BucketRowActions from './bucket-rows';
-import * as BucketActions from './buckets';
+import * as TransitionActions from './transition';
+import * as BucketRowActions from './bucket-row';
+import * as BucketActions from './bucket';
 import * as AuthenticatedUserActions from './authenticated-user';
 
 

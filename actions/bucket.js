@@ -6,8 +6,8 @@
 
 import slugify from 'slugg';
 
-import { transitionTo } from './transitions';
-import { createBucketRow } from './bucket-rows';
+import { transitionTo } from './transition';
+import { createBucketRow } from './bucket-row';
 import * as ActionTypes from '../constants/action-types';
 import serialize from '../util/serialize';
 import Bucket from '../models/bucket';
