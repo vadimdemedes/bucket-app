@@ -4,8 +4,6 @@
  * Dependencies
  */
 
-import slugify from 'slugg';
-
 import { transitionTo } from './transition';
 import { createBucketRow } from './bucket-row';
 import * as ActionTypes from '../constants/action-types';
@@ -99,25 +97,20 @@ export function setBucket (bucket) {
 
 
 /**
- * Update current bucket name
+ * Update current bucket
  */
 
-export function setBucketName (name) {
+export function updateBucket (data) {
 	return (dispatch, getState) => {
 		let state = getState();
 
 		let bucket = Bucket.unserialize(state.bucket);
-		let user = state.authenticatedUser;
-		let slug = slugify(name);
-
-		bucket.set({ name, slug });
+		bucket.set(data);
 
 		dispatch({
-			type: ActionTypes.SET_BUCKET_NAME,
-			data: name
+			type: ActionTypes.UPDATE_BUCKET,
+			data: data
 		});
-
-		dispatch(transitionTo(bucketPath(user.username, slug), { replace: true }));
 
 		return bucket.save({ update: true });
 	};

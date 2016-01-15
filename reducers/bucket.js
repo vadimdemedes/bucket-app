@@ -6,7 +6,7 @@
 
 import assign from 'object-assign';
 
-import { SET_BUCKET, SET_BUCKET_NAME } from '../constants/action-types';
+import { SET_BUCKET, UPDATE_BUCKET } from '../constants/action-types';
 
 
 /**
@@ -18,10 +18,8 @@ function bucket (state = null, action) {
 		case SET_BUCKET:
 			return action.data;
 
-		case SET_BUCKET_NAME:
-			return assign({}, state, {
-				name: action.data
-			});
+		case UPDATE_BUCKET:
+			return assign({}, state, action.data);
 
 		default:
 			return state;

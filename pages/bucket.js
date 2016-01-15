@@ -6,8 +6,10 @@
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import slugify from 'slugg';
 import React from 'react';
 
+import { bucketPath } from '../helpers/urls';
 import Actions from '../actions';
 import Bucket from '../components/bucket';
 
@@ -56,12 +58,22 @@ const BucketPage = React.createClass({
 			id={ bucket.id }
 			rows={ rows }
 			readOnly={ isReadOnly }
-			onChangeName={ actions.setBucketName }
+			onChangeName={ this.updateName }
 			onAddRow={ actions.createBucketRow }
 			onDeleteRow={ actions.deleteBucketRow }
 			onUpdateRow={ actions.updateBucketRow }
 			onChangeRowOutputType={ actions.setBucketRowOutputType }
 		/>;
+	},
+
+	updateName: function (name) {
+		let actions = this.props.actions;
+		let bucket = this.props.bucket;
+
+		let slug = slugify(name);
+
+		actions.updateBucket({ name, slug });
+		actions.transitionTo(bucketPath(this.props.params.user, slug), { replace: true });
 	}
 });
 
