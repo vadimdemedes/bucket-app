@@ -10,6 +10,7 @@ import authenticatedUser from './authenticated-user';
 import buckets from './buckets';
 import bucket from './bucket';
 import rows from './rows';
+import user from './user';
 
 
 /**
@@ -17,10 +18,11 @@ import rows from './rows';
  */
 
 const reducer = combineReducers({
-	authenticatedUser: authenticatedUser, // logged in user
-	buckets: buckets,
-	bucket: bucket,
-	rows: rows
+	authenticatedUser, // logged in user
+	buckets,
+	bucket,
+	rows,
+	user // currently viewing user
 });
 
 

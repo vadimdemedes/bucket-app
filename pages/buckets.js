@@ -24,6 +24,7 @@ const BucketsPage = React.createClass({
 		let user = this.props.params.user;
 
 		actions.loadBuckets({ user });
+		actions.loadUser(user);
 	},
 
 	componentWillUnmount: function () {
@@ -38,12 +39,19 @@ const BucketsPage = React.createClass({
 
 	render: function () {
 		let buckets = this.props.buckets;
-		let user = this.props.params.user;
+		let user = this.props.user;
+
+		if (!user) {
+			return <div></div>;
+		}
 
 		return <div>
 			<div className="clearfix">
 				<div className="left">
-					<Link to={ userPath(user) }>{ user }</Link>
+					<Link to={ userPath(user.username) } className="bold relative">
+						<img src={ user.profileImageURL } className="user-profile-image" />
+						{ user.username }
+					</Link>
 				</div>
 
 				<div className="right">
@@ -51,7 +59,7 @@ const BucketsPage = React.createClass({
 				</div>
 			</div>
 
-			<BucketList user={ user } buckets={ buckets } />
+			<BucketList user={ user.username } buckets={ buckets } />
 		</div>;
 	},
 
@@ -72,8 +80,9 @@ const BucketsPage = React.createClass({
 
 function mapStateToProps (state) {
 	return {
+		authenticatedUser: state.authenticatedUser,
 		buckets: state.buckets,
-		authenticatedUser: state.authenticatedUser
+		user: state.user
 	};
 }
 

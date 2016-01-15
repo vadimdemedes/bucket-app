@@ -7,8 +7,6 @@
 import debounce from 'debounce';
 import React from 'react';
 
-import { userPath, bucketPath } from '../helpers/urls';
-import Link from './link';
 import Code from './code';
 import Text from './text';
 import Row from './row';
@@ -20,16 +18,7 @@ import Row from './row';
 
 const Bucket = React.createClass({
 	render: function () {
-		let user = this.props.user;
-		let slug = this.props.slug;
-
 		return <div>
-			<div className="row">
-				<Link to={ userPath(user) }>{ user }</Link>
-				<span className="mr1 ml1">/</span>
-				<Link to={ bucketPath(user, slug) } className="bold">{ slug }</Link>
-			</div>
-
 			<div className="row">
 				{ this.bucketName() }
 			</div>

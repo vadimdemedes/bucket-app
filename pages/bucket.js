@@ -9,9 +9,10 @@ import { connect } from 'react-redux';
 import slugify from 'slugg';
 import React from 'react';
 
-import { bucketPath } from '../helpers/urls';
+import { userPath, bucketPath } from '../helpers/urls';
 import Actions from '../actions';
 import Bucket from '../components/bucket';
+import Link from '../components/link';
 
 
 /**
@@ -31,6 +32,8 @@ const BucketPage = React.createClass({
 				bucket: bucket.get('id')
 			});
 		});
+
+		actions.loadUser(user);
 	},
 
 	componentWillUnmount: function () {
@@ -43,27 +46,37 @@ const BucketPage = React.createClass({
 		let actions = this.props.actions;
 		let bucket = this.props.bucket;
 		let rows = this.props.rows;
+		let user = this.props.user;
 
-		if (!bucket) {
+		if (!bucket || !user) {
 			return <div></div>;
 		}
 
 		let authenticatedUser = this.props.authenticatedUser;
 		let isReadOnly = !authenticatedUser || authenticatedUser.username !== this.props.params.user;
 
-		return <Bucket
-			user={ this.props.params.user }
-			slug={ bucket.slug }
-			name={ bucket.name }
-			id={ bucket.id }
-			rows={ rows }
-			readOnly={ isReadOnly }
-			onChangeName={ this.updateName }
-			onAddRow={ actions.createBucketRow }
-			onDeleteRow={ actions.deleteBucketRow }
-			onUpdateRow={ actions.updateBucketRow }
-			onChangeRowOutputType={ actions.setBucketRowOutputType }
-		/>;
+		return <div>
+			<div>
+				<Link to={ userPath(user.username) } className="bold relative">
+					<img src={ user.profileImageURL } className="user-profile-image" />
+					{ user.username }
+				</Link>
+				<span className="mr1 ml1">/</span>
+				<Link to={ bucketPath(user.username, bucket.slug) } className="bold">{ bucket.slug }</Link>
+			</div>
+
+			<Bucket
+				name={ bucket.name }
+				id={ bucket.id }
+				rows={ rows }
+				readOnly={ isReadOnly }
+				onChangeName={ this.updateName }
+				onAddRow={ actions.createBucketRow }
+				onDeleteRow={ actions.deleteBucketRow }
+				onUpdateRow={ actions.updateBucketRow }
+				onChangeRowOutputType={ actions.setBucketRowOutputType }
+			/>
+		</div>;
 	},
 
 	updateName: function (name) {
@@ -84,9 +97,10 @@ const BucketPage = React.createClass({
 
 function mapStateToProps (state) {
 	return {
+		authenticatedUser: state.authenticatedUser,
 		bucket: state.bucket,
 		rows: state.rows,
-		authenticatedUser: state.authenticatedUser
+		user: state.user
 	};
 }
 

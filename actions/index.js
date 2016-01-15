@@ -6,10 +6,11 @@
 
 import assign from 'object-assign';
 
+import * as AuthenticatedUserActions from './authenticated-user';
 import * as TransitionActions from './transition';
 import * as BucketRowActions from './bucket-row';
 import * as BucketActions from './bucket';
-import * as AuthenticatedUserActions from './authenticated-user';
+import * as UserActions from './user';
 
 
 /**
@@ -18,10 +19,11 @@ import * as AuthenticatedUserActions from './authenticated-user';
 
 const actions = assign(
 	{},
+	AuthenticatedUserActions,
 	TransitionActions,
 	BucketRowActions,
 	BucketActions,
-	AuthenticatedUserActions
+	UserActions
 );
 
 export default actions;
