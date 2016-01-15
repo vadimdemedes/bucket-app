@@ -50,6 +50,8 @@ const BucketPage = React.createClass({
 		let isReadOnly = !isLoggedIn || this.props.user.username !== this.props.params.user;
 
 		return <Bucket
+			user={ this.props.params.user }
+			slug={ bucket.slug }
 			name={ bucket.name }
 			id={ bucket.id }
 			rows={ rows }
