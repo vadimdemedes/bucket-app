@@ -17,6 +17,34 @@ import url from '../util/url';
 const User = Model.extend({
 
 }, {
+	find: function (username) {
+		if (!username) {
+			throw new Error('Expected a username in User.find()');
+		}
+
+		return new Promise((resolve, reject) => {
+			this.rootRef
+				.child('users')
+				.orderByChild('username')
+				.equalTo(username)
+				.once('child_added', snapshot => {
+					let data = snapshot.val();
+
+					let user = new User({
+						profileImageURL: data.profileImageURL,
+						displayName: data.displayName,
+						username: data.username,
+						email: data.email,
+						id: snapshot.key()
+					}, {
+						ref: snapshot.ref()
+					});
+
+					resolve(user);
+				});
+		});
+	},
+
 	currentUser: function () {
 		let authData = this.rootRef.getAuth();
 
