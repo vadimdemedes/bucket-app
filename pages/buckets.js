@@ -33,9 +33,7 @@ const BucketsPage = React.createClass({
 	},
 
 	componentDidMount: function () {
-		let user = this.props.user.username;
-
-		document.title = user + ' - Bucket';
+		document.title = this.props.params.user + ' - Bucket';
 	},
 
 	render: function () {
@@ -59,7 +57,7 @@ const BucketsPage = React.createClass({
 
 	newBucketButton: function () {
 		let actions = this.props.actions;
-		let isOwnDashboard = this.props.params.user === this.props.user.username;
+		let isOwnDashboard = this.props.params.user === this.props.authenticatedUser.username;
 
 		if (isOwnDashboard) {
 			return <a href="#" onClick={ actions.createBucket } className="btn btn-outline blue">New Bucket</a>;
@@ -75,7 +73,7 @@ const BucketsPage = React.createClass({
 function mapStateToProps (state) {
 	return {
 		buckets: state.buckets,
-		user: state.user
+		authenticatedUser: state.authenticatedUser
 	};
 }
 

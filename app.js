@@ -41,17 +41,17 @@ User.setup(ref);
 let currentUser = User.currentUser();
 
 if (currentUser) {
-	store.dispatch(Actions.setCurrentUser(currentUser));
+	store.dispatch(Actions.setAuthenticatedUser(currentUser));
 }
 
 // monitor auth changes
 ref.onAuth(data => {
 	if (!data) {
-		store.dispatch(Actions.setCurrentUser(null));
+		store.dispatch(Actions.setAuthenticatedUser(null));
 		return;
 	}
 
-	store.dispatch(Actions.setCurrentUser(User.currentUser()));
+	store.dispatch(Actions.setAuthenticatedUser(User.currentUser()));
 });
 
 // var LoadingIndicator = React.createClass({

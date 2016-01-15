@@ -6,9 +6,9 @@
 
 import { combineReducers } from 'redux';
 
+import authenticatedUser from './authenticated-user';
 import buckets from './buckets';
 import bucket from './bucket';
-import user from './user';
 import rows from './rows';
 
 
@@ -17,10 +17,10 @@ import rows from './rows';
  */
 
 const reducer = combineReducers({
-	buckets,
-	bucket,
-	user,
-	rows
+	authenticatedUser: authenticatedUser, // logged in user
+	buckets: buckets,
+	bucket: bucket,
+	rows: rows
 });
 
 

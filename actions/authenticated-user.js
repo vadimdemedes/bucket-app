@@ -12,7 +12,7 @@ import { userPath } from '../helpers/urls';
 
 
 /**
- * Bucket actions
+ * Authorized user
  */
 
 
@@ -24,7 +24,7 @@ export function logIn () {
 	return dispatch => {
 		return User.logIn()
 			.then(user => {
-				dispatch(setCurrentUser(user));
+				dispatch(setAuthenticatedUser(user));
 				dispatch(transitionTo(userPath(user.get('username'))));
 			});
 	};
@@ -32,12 +32,12 @@ export function logIn () {
 
 
 /**
- * Set current user
+ * Set current authorized user
  */
 
-export function setCurrentUser (user) {
+export function setAuthenticatedUser (user) {
 	return {
-		type: ActionTypes.SET_CURRENT_USER,
+		type: ActionTypes.SET_AUTHORIZED_USER,
 		data: serialize(user)
 	};
 }
@@ -49,7 +49,7 @@ export function setCurrentUser (user) {
 
 export function logOut () {
 	return dispatch => {
-		dispatch(setCurrentUser(null));
+		dispatch(setAuthenticatedUser(null));
 		dispatch(transitionTo(''));
 	};
 }

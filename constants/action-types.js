@@ -8,7 +8,7 @@
 export const TRANSITION = 'TRANSITION';
 
 // users
-export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+export const SET_AUTHORIZED_USER = 'SET_AUTHORIZED_USER';
 export const LOGIN_USER = 'LOGIN_USER';
 export const LOGOUT_USER = 'LOGOUT_USER';
 

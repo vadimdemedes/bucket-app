@@ -35,7 +35,7 @@ const HomePage = React.createClass({
 				What is Bucket? <Link to="/vdemedes/what-is-bucket">Discover the answer here.</Link>
 			</p>
 
-			<LogInButton user={ this.props.user } onClick={ actions.logIn } />
+			<LogInButton user={ this.props.authenticatedUser } onClick={ actions.logIn } />
 		</div>;
 	}
 });
@@ -47,7 +47,7 @@ const HomePage = React.createClass({
 
 function mapStateToProps (state) {
 	return {
-		user: state.user
+		authenticatedUser: state.authenticatedUser
 	};
 }
 

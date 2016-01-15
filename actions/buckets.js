@@ -67,7 +67,7 @@ export function setBuckets (buckets) {
 
 export function createBucket () {
 	return (dispatch, getState) => {
-		let user = getState().user;
+		let user = getState().authenticatedUser;
 
 		if (!user) {
 			return;
@@ -107,7 +107,7 @@ export function setBucketName (name) {
 		let state = getState();
 
 		let bucket = Bucket.unserialize(state.bucket);
-		let user = state.user;
+		let user = state.authenticatedUser;
 		let slug = slugify(name);
 
 		bucket.set({ name, slug });

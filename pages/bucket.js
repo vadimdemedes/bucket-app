@@ -46,8 +46,8 @@ const BucketPage = React.createClass({
 			return <div></div>;
 		}
 
-		let isLoggedIn = !!this.props.user;
-		let isReadOnly = !isLoggedIn || this.props.user.username !== this.props.params.user;
+		let authenticatedUser = this.props.authenticatedUser;
+		let isReadOnly = !authenticatedUser || authenticatedUser.username !== this.props.params.user;
 
 		return <Bucket
 			user={ this.props.params.user }
@@ -74,7 +74,7 @@ function mapStateToProps (state) {
 	return {
 		bucket: state.bucket,
 		rows: state.rows,
-		user: state.user
+		authenticatedUser: state.authenticatedUser
 	};
 }
 
