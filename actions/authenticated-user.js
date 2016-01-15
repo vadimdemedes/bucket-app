@@ -30,7 +30,7 @@ export function logIn () {
 			.catch(err => {
 				// TODO: check err
 				User.logOut();
-				
+
 				dispatch(transitionTo('join'));
 			});
 	};
@@ -43,7 +43,7 @@ export function logIn () {
 
 export function setAuthenticatedUser (user) {
 	return {
-		type: ActionTypes.SET_AUTHORIZED_USER,
+		type: ActionTypes.SET_AUTHENTICATED_USER,
 		data: serialize(user)
 	};
 }

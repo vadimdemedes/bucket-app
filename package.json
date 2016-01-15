@@ -7,6 +7,7 @@
     "test": "xo --ignore public/*.js"
   },
   "devDependencies": {
+    "ava": "^0.10.0",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "babelify": "^7.2.0",
@@ -16,7 +17,7 @@
     "koa": "^1.1.2",
     "koa-static": "^1.5.2",
     "less": "^2.5.3",
-    "xo": "^0.11.2"
+    "xo": "^0.12.1"
   },
   "dependencies": {
     "backbone": "^1.2.3",

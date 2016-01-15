@@ -4,7 +4,7 @@
  * Dependencies
  */
 
-import { SET_AUTHORIZED_USER } from '../constants/action-types';
+import { SET_AUTHENTICATED_USER } from '../constants/action-types';
 
 
 /**
@@ -13,7 +13,7 @@ import { SET_AUTHORIZED_USER } from '../constants/action-types';
 
 function authenticatedUser (state = null, action) {
 	switch (action.type) {
-		case SET_AUTHORIZED_USER:
+		case SET_AUTHENTICATED_USER:
 			return action.data;
 
 		default:

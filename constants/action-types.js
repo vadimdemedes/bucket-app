@@ -7,8 +7,8 @@
 // transition
 export const TRANSITION = 'TRANSITION';
 
-// authorized user
-export const SET_AUTHORIZED_USER = 'SET_AUTHORIZED_USER';
+// authenticated user
+export const SET_AUTHENTICATED_USER = 'SET_AUTHENTICATED_USER';
 export const LOGIN_USER = 'LOGIN_USER';
 export const LOGOUT_USER = 'LOGOUT_USER';
 
