@@ -27,7 +27,7 @@ import store from './shared/store';
  * Set up models
  */
 
-const ref = new Firebase('https://bucketdev.firebaseio.com');
+const ref = new Firebase('https://bucketdev-dev.firebaseio.com');
 
 BucketRow.setup(ref);
 Bucket.setup(ref);

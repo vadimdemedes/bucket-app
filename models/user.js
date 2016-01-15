@@ -119,7 +119,7 @@ const User = Model.extend({
 	},
 
 	logOut: function () {
-		this.db.unauth();
+		this.rootRef.unauth();
 	}
 });
 

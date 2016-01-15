@@ -26,6 +26,10 @@ export function logIn () {
 			.then(user => {
 				dispatch(setAuthenticatedUser(user));
 				dispatch(transitionTo(userPath(user.get('username'))));
+			})
+			.catch(err => {
+				User.logOut();
+				dispatch(transitionTo('join'));
 			});
 	};
 }
