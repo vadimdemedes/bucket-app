@@ -5,9 +5,9 @@
  */
 
 export function userPath (username) {
-	return username;
+	return '/' + username;
 };
 
 export function bucketPath (username, slug) {
-	return username + '/' + slug;
+	return '/' + username + '/' + slug;
 };

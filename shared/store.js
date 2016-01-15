@@ -32,7 +32,13 @@ function transitionMiddleware () {
 				options.trigger = true;
 			}
 
-			router.navigate(action.transition.to, options);
+			let path = action.transition.to;
+
+			if (path[0] === '/') {
+				path = path.slice(1);
+			}
+
+			router.navigate(path, options);
 		};
 	};
 }
