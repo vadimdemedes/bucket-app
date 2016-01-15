@@ -17,12 +17,16 @@ import Link from './link';
 const BucketList = React.createClass({
 	render: function () {
 		let user = this.props.user;
-		
+
 		let buckets = this.props.buckets.map(bucket => {
 			return <li key={ bucket.id }>
 				<Link to={ bucketPath(user, bucket.slug) }>
-					<h4>{ bucket.name }</h4>
+					{ bucket.slug }
 				</Link>
+
+				<p>
+					{ bucket.name }
+				</p>
 			</li>;
 		});
 
