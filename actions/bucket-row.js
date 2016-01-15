@@ -4,6 +4,8 @@
  * Dependencies
  */
 
+import Promise from 'pinkie-promise';
+
 import * as ActionTypes from '../constants/action-types';
 import BucketRow from '../models/bucket-row';
 import serialize from '../util/serialize';
@@ -25,6 +27,42 @@ export function loadBucketRows (options) {
 
 			return rows;
 		});
+	};
+}
+
+
+/**
+ * Watch bucket rows for output changes
+ */
+
+export function watchBucketRows () {
+	return (dispatch, getState) => {
+		let rows = getState().rows.map(row => BucketRow.unserialize(row));
+
+		rows.forEach(row => {
+			let skippedFirstValue = false;
+
+			row.ref().child('output').on('value', snapshot => {
+				if (!skippedFirstValue) {
+					skippedFirstValue = true;
+					return;
+				}
+
+				dispatch(updateBucketRow({
+					index: row.get('index'),
+					output: null
+				}));
+
+				dispatch(updateBucketRow({
+					index: row.get('index'),
+					output: snapshot.val()
+				}));
+			});
+		});
+
+		return () => {
+			rows.forEach(row => row.ref().off());
+		};
 	};
 }
 
@@ -74,20 +112,29 @@ export function addBucketRow (row) {
 
 
 /**
- * Update bucket row index, value and update the store
+ * Update bucket row
  */
 
 export function updateBucketRow (data) {
+	return {
+		type: ActionTypes.UPDATE_BUCKET_ROW,
+		data: data
+	};
+}
+
+
+/**
+ * Update & save bucket row to Firebase
+ */
+
+export function saveBucketRow (data) {
 	return (dispatch, getState) => {
 		let state = getState();
 
 		let row = BucketRow.unserialize(state.rows[data.index]);
 		row.set(data);
 
-		dispatch({
-			type: ActionTypes.UPDATE_BUCKET_ROW,
-			data: data
-		});
+		dispatch(updateBucketRow(data));
 
 		return row.save({ update: true });
 	};

@@ -31,6 +31,8 @@ const BucketPage = React.createClass({
 
 			actions.loadBucketRows({
 				bucket: bucket.get('id')
+			}).then(() => {
+				this.unsubscribe = actions.watchBucketRows();
 			});
 		});
 
@@ -42,6 +44,8 @@ const BucketPage = React.createClass({
 
 		actions.setBucket(null);
 		actions.setBucketRows([]);
+
+		this.unsubscribe();
 	},
 
 	render: function () {
@@ -71,7 +75,7 @@ const BucketPage = React.createClass({
 				onChangeName={ this.updateName }
 				onAddRow={ actions.createBucketRow }
 				onDeleteRow={ actions.deleteBucketRow }
-				onUpdateRow={ actions.updateBucketRow }
+				onUpdateRow={ actions.saveBucketRow }
 				onChangeRowOutputType={ actions.setBucketRowOutputType }
 			/>
 		</div>;
