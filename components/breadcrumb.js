@@ -35,7 +35,7 @@ const Breadcrumb = React.createClass({
 			}
 		});
 
-		return <div className="relative">
+		return <div className="breadcrumb relative">
 			{ items }
 		</div>;
 	}

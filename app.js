@@ -10,6 +10,10 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 
 import Actions from './actions';
+import router from './shared/router';
+import store from './shared/store';
+import App from './containers/app';
+
 import BucketsPage from './pages/buckets';
 import BucketPage from './pages/bucket';
 import HomePage from './pages/homepage';
@@ -18,9 +22,6 @@ import JoinPage from './pages/join';
 import BucketRow from './models/bucket-row';
 import Bucket from './models/bucket';
 import User from './models/user';
-
-import router from './shared/router';
-import store from './shared/store';
 
 
 /**
@@ -65,10 +66,10 @@ ref.onAuth(data => {
 
 
 /**
- * App
+ * Dispatcher
  */
 
-const App = React.createClass({
+const Dispatcher = React.createClass({
 	getInitialState: function () {
 		return {
 			component: null,
@@ -110,7 +111,9 @@ const App = React.createClass({
 		}
 
 		return <Provider store={ store }>
-			{ component }
+			<App>
+				{ component }
+			</App>
 		</Provider>;
 	},
 
@@ -119,4 +122,5 @@ const App = React.createClass({
 	}
 });
 
-ReactDOM.render(<App />, document.getElementById('app'));
+
+ReactDOM.render(<Dispatcher />, document.getElementById('app'));

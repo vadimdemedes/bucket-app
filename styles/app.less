@@ -11,6 +11,10 @@ body {
 	font-size: 1.8em;
 }
 
+.breadcrumb a:hover {
+	text-decoration: none;
+}
+
 .breadcumb-image {
 	width: 28px;
   border-radius: 14px;
@@ -30,7 +34,24 @@ body {
 
 .container {
 	max-width: 46em;
-	margin-top: 4rem;
+	margin-top: 2rem;
+}
+
+.header {
+	margin-bottom: 2rem;
+}
+
+.header:hover a, .header:hover button {
+	color: #444 !important;
+}
+
+.header a, .header button {
+	color: #ddd !important;
+	transition: color 100ms cubic-bezier(0.55, 0.09, 0.68, 0.53);
+}
+
+.header a:hover {
+	text-decoration: none;
 }
 
 .bucket-name {
