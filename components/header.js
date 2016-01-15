@@ -28,8 +28,6 @@ const Header = React.createClass({
 	},
 
 	leftItems: function () {
-		let user = this.props.user;
-
 		if (!this.props.user) {
 			return <li>
 				<Link to="/">Bucket</Link>

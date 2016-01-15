@@ -86,7 +86,7 @@ const User = Model.extend({
 		}
 
 		return new Promise((resolve, reject) => {
-			this.rootRef.authWithOAuthPopup('github', (err, authData) => {
+			this.rootRef.authWithOAuthPopup('github', err => {
 				if (err) {
 					reject(err);
 					return;

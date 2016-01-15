@@ -10,4 +10,4 @@ export default function serialize (model) {
 	}
 
 	return model.serialize ? model.serialize() : model;
-};
+}

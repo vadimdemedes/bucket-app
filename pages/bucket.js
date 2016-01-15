@@ -83,8 +83,6 @@ const BucketPage = React.createClass({
 
 	updateName: function (name) {
 		let actions = this.props.actions;
-		let bucket = this.props.bucket;
-
 		let slug = slugify(name);
 
 		actions.updateBucket({ name, slug });

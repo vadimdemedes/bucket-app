@@ -6,7 +6,6 @@
 
 import React from 'react';
 
-import router from '../shared/router';
 import Link from './link';
 
 

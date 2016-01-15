@@ -28,7 +28,9 @@ export function logIn () {
 				dispatch(transitionTo(userPath(user.get('username'))));
 			})
 			.catch(err => {
+				// TODO: check err
 				User.logOut();
+				
 				dispatch(transitionTo('join'));
 			});
 	};

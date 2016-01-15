@@ -25,7 +25,7 @@ const App = React.createClass({
 				user={ this.props.authenticatedUser }
 				onLogIn={ actions.logIn }
 				onLogOut={ actions.logOut } />
-			
+
 			{ this.props.children }
 		</div>;
 	}
