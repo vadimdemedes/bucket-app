@@ -55,15 +55,6 @@ ref.onAuth(data => {
 	store.dispatch(Actions.setAuthenticatedUser(User.currentUser()));
 });
 
-// var LoadingIndicator = React.createClass({
-// 	render: function () {
-// 		return <div className="loading-indicator">
-// 			<img src="/images/loading.gif" />
-// 			<span>LOADING</span>
-// 		</div>;
-// 	}
-// });
-
 
 /**
  * Dispatcher

@@ -7,6 +7,10 @@
 // transition
 export const TRANSITION = 'TRANSITION';
 
+// loading indicator
+export const SHOW_LOADING_INDICATOR = 'SHOW_LOADING_INDICATOR';
+export const HIDE_LOADING_INDICATOR = 'HIDE_LOADING_INDICATOR';
+
 // authenticated user
 export const SET_AUTHENTICATED_USER = 'SET_AUTHENTICATED_USER';
 export const LOGIN_USER = 'LOGIN_USER';

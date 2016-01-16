@@ -8,6 +8,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import React from 'react';
 
+import LoadingIndicator from '../components/loading-indicator';
 import Header from '../components/header';
 import Actions from '../actions';
 
@@ -21,6 +22,7 @@ const App = React.createClass({
 		let actions = this.props.actions;
 
 		return <div className="container">
+			<LoadingIndicator display={ this.props.loadingIndicator } />
 			<Header
 				user={ this.props.authenticatedUser }
 				onLogIn={ actions.logIn }
@@ -38,7 +40,8 @@ const App = React.createClass({
 
 function mapStateToProps (state) {
 	return {
-		authenticatedUser: state.authenticatedUser
+		authenticatedUser: state.authenticatedUser,
+		loadingIndicator: state.loadingIndicator
 	};
 }
 

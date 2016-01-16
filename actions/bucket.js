@@ -4,6 +4,7 @@
  * Dependencies
  */
 
+import { showLoadingIndicator, hideLoadingIndicator } from './loading-indicator';
 import { transitionTo } from './transition';
 import { createBucketRow } from './bucket-row';
 import * as ActionTypes from '../constants/action-types';
@@ -24,8 +25,14 @@ export function runBucket () {
 	return (dispatch, getState) => {
 		let bucket = getState().bucket;
 
+		dispatch(showLoadingIndicator());
+
 		return fetch('http://factory.onbucket.com/run/' + bucket.id, {
 			method: 'post'
+		}).then(res => {
+			dispatch(hideLoadingIndicator());
+
+			return res;
 		});
 	};
 }
