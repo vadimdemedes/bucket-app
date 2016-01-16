@@ -27,7 +27,7 @@ export function runBucket () {
 
 		dispatch(showLoadingIndicator());
 
-		return fetch('http://factory.onbucket.com/run/' + bucket.id, {
+		return fetch('https://factory.onbucket.com/run/' + bucket.id, {
 			method: 'post'
 		}).then(res => {
 			dispatch(hideLoadingIndicator());
