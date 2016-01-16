@@ -73,7 +73,7 @@ const Row = React.createClass({
 
 		let types = this.props.outputTypes;
 
-		if (types.length === 1) {
+		if (types.length <= 1) {
 			return;
 		}
 

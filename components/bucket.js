@@ -80,13 +80,28 @@ const Bucket = React.createClass({
 	},
 
 	row: function (row, index, children) {
+		let hasOutput = row.type === 'code' && !!row.output;
+		let output, outputTypes, selectedOutputType;
+
+		if (hasOutput) {
+			if (row.output.error) {
+				output = row.output.error;
+				outputTypes = [];
+				selectedOutputType = 'error';
+			} else {
+				output = row.output[row.selectedOutput];
+				outputTypes = Object.keys(row.output);
+				selectedOutputType = row.selectedOutput;
+			}
+		}
+
 		return <Row
 			type={ row.type }
 			key={ row.id }
 			readOnly={ this.props.readOnly }
-			output={ row.output ? row.output[row.selectedOutput] : null }
-			outputTypes={ Object.keys(row.output || {}) }
-			selectedOutputType={ row.selectedOutput }
+			output={ output }
+			outputTypes={ outputTypes }
+			selectedOutputType={ selectedOutputType }
 			onRun={ this.props.onRun }
 			onAddText={ this.addRow.bind(this, index, 'text') }
 			onAddCode={ this.addRow.bind(this, index, 'code') }
