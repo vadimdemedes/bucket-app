@@ -16,6 +16,20 @@ import { bucketPath } from '../helpers/urls';
  * Bucket actions
  */
 
+/**
+ * Run bucket code
+ */
+
+export function runBucket () {
+	return (dispatch, getState) => {
+		let bucket = getState().bucket;
+
+		return fetch('http://factory.onbucket.com/run/' + bucket.id, {
+			method: 'post'
+		});
+	};
+}
+
 
 /**
  * Load buckets of some user and add them to the store

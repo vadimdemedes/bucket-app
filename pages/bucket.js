@@ -72,6 +72,7 @@ const BucketPage = React.createClass({
 				id={ bucket.id }
 				rows={ rows }
 				readOnly={ isReadOnly }
+				onRun={ actions.runBucket }
 				onChangeName={ this.updateName }
 				onAddRow={ actions.createBucketRow }
 				onDeleteRow={ actions.deleteBucketRow }
