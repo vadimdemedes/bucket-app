@@ -89,9 +89,9 @@ const Bucket = React.createClass({
 				outputTypes = [];
 				selectedOutputType = 'error';
 			} else {
-				output = row.output[row.selectedOutput];
+				output = row.output[row.selectedOutput || 'plain'];
 				outputTypes = Object.keys(row.output);
-				selectedOutputType = row.selectedOutput;
+				selectedOutputType = row.selectedOutput || 'plain';
 			}
 		}
 
