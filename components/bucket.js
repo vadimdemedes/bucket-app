@@ -29,7 +29,7 @@ const Bucket = React.createClass({
 
 	bucketName: function () {
 		if (this.props.readOnly) {
-			return <h1>{ this.props.name }</h1>;
+			return <h1 className="mt0">{ this.props.name }</h1>;
 		}
 
 		return <input
