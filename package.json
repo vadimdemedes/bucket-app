@@ -2,9 +2,9 @@
   "scripts": {
     "build": "npm run scripts && npm run styles",
     "start": "PORT=3000 node server public",
-    "scripts": "browserify -t [ babelify --presets [ es2015 react ] ] -t [ envify purge ] app.js > public/app.js",
+    "scripts": "browserify -t babelify -t [ envify purge ] app.js > public/app.js",
     "styles": "lessc styles/app.less > public/app.css",
-    "test": "xo --ignore public/*.js"
+    "test": "ava --require babel-core/register --verbose"
   },
   "devDependencies": {
     "ava": "^0.10.0",
