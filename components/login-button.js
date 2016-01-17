@@ -6,6 +6,8 @@
 
 import React from 'react';
 
+import Button from './button';
+
 
 /**
  * Log In Button
@@ -13,15 +15,10 @@ import React from 'react';
 
 const LogInButton = React.createClass({
 	render: function () {
-		let props = {
-			className: 'btn btn-lg btn-primary mt4',
-			onClick: this.props.onClick
-		};
-
-		return <button { ...props }>
+		return <Button { ...this.props }>
 			<img src="/images/github-icon.svg" />
 			Sign in with GitHub
-		</button>;
+		</Button>;
 	}
 });
 
