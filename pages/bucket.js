@@ -44,7 +44,9 @@ const BucketPage = React.createClass({
 		actions.setBucket(null);
 		actions.setBucketRows([]);
 
-		this.unsubscribe();
+		if (this.unsubscribe) {
+			this.unsubscribe();
+		}
 	},
 
 	render: function () {
