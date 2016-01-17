@@ -40,7 +40,7 @@ const Map = React.createClass({
 	},
 
 	render: function () {
-		return <div ref="map" className="map"></div>;
+		return <div ref="map" className="map mt3"></div>;
 	}
 });
 
