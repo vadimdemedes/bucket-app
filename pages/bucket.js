@@ -61,24 +61,25 @@ const BucketPage = React.createClass({
 		let authenticatedUser = this.props.authenticatedUser;
 		let isReadOnly = !authenticatedUser || authenticatedUser.username !== this.props.params.user;
 
+		let props = {
+			readOnly: isReadOnly,
+			rows: rows,
+			name: bucket.name,
+			id: bucket.id,
+			onChangeRowOutputType: actions.setBucketRowOutputType,
+			onChangeName: this.updateName,
+			onDeleteRow: actions.deleteBucketRow,
+			onUpdateRow: actions.saveBucketRow,
+			onAddRow: actions.createBucketRow
+		};
+
 		return <div>
 			<Breadcrumb image={ user.profileImageURL }>
 				<Link to={ userPath(user.username) }>{ user.username }</Link>
 				<Link to={ bucketPath(user.username, bucket.slug) } className="bold">{ bucket.slug }</Link>
 			</Breadcrumb>
 
-			<Bucket
-				name={ bucket.name }
-				id={ bucket.id }
-				rows={ rows }
-				readOnly={ isReadOnly }
-				onRun={ actions.runBucket }
-				onChangeName={ this.updateName }
-				onAddRow={ actions.createBucketRow }
-				onDeleteRow={ actions.deleteBucketRow }
-				onUpdateRow={ actions.saveBucketRow }
-				onChangeRowOutputType={ actions.setBucketRowOutputType }
-			/>
+			<Bucket { ...props } />
 		</div>;
 	},
 

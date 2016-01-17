@@ -64,13 +64,24 @@ const BucketsPage = React.createClass({
 	},
 
 	newBucketButton: function () {
-		let actions = this.props.actions;
 		let authenticatedUser = this.props.authenticatedUser;
-		let isOwnDashboard = authenticatedUser && this.props.params.user === authenticatedUser.username;
-
-		if (isOwnDashboard) {
-			return <a href="#" onClick={ actions.createBucket } className="btn btn-outline blue">New Bucket</a>;
+		if (!authenticatedUser) {
+			return;
 		}
+
+		let isOwnDashboard = this.props.params.user === authenticatedUser.username;
+		if (!isOwnDashboard) {
+			return;
+		}
+
+		let actions = this.props.actions;
+		let props = {
+			className: 'btn btn-outline',
+			href: '#',
+			onClick: actions.createBucket
+		};
+
+		return <a { ...props }>New Bucket</a>;
 	}
 });
 
