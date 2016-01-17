@@ -18,11 +18,14 @@ const Err = React.createClass({
 		let error = this.props.value;
 		let value = error.name + ': ' + error.message + '\n' + error.stack;
 
+		let props = {
+			lineNumbers: false,
+			readOnly: true,
+			mode: 'gfm'
+		};
+
 		return <div className="bucket-row-output is-error">
-			<Editor
-				lineNumbers={ false }
-				mode="gfm"
-				readOnly={ true }>{ value }</Editor>
+			<Editor { ...props }>{ value }</Editor>
 		</div>;
 	}
 });

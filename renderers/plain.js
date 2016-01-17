@@ -22,11 +22,14 @@ const Plain = React.createClass({
 			formatted = value;
 		}
 
+		let props = {
+			lineNumbers: false,
+			readOnly: true,
+			mode: 'javascript'
+		};
+
 		return <div className="bucket-row-output">
-			<Editor
-				lineNumbers={ false }
-				mode="javascript"
-				readOnly={ true }>{ formatted }</Editor>
+			<Editor { ...props }>{ formatted }</Editor>
 		</div>;
 	}
 });
