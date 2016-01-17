@@ -1,0 +1,16 @@
+.header {
+	margin-bottom: 2rem;
+}
+
+.header:hover a, .header:hover button {
+	color: #444 !important;
+}
+
+.header a, .header button {
+	color: #ddd !important;
+	transition: color 100ms cubic-bezier(0.55, 0.09, 0.68, 0.53);
+}
+
+.header a:hover {
+	text-decoration: none;
+}

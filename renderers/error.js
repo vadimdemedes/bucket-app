@@ -18,7 +18,7 @@ const Err = React.createClass({
 		let error = this.props.value;
 		let value = error.name + ': ' + error.message + '\n' + error.stack;
 
-		return <div className="result error">
+		return <div className="bucket-row-output is-error">
 			<Editor
 				lineNumbers={ false }
 				mode="gfm"

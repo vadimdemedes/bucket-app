@@ -1,0 +1,15 @@
+.bucket-row-output {
+	border: 1px solid #eee;
+	padding: 0.5rem 1rem;
+  margin-top: 1rem;
+}
+
+.bucket-row-output.is-error {
+	border: 0;
+	background: #e54331;
+}
+
+.bucket-row-output.is-error .CodeMirror {
+	background: #e54331;
+	color: #fff;
+}

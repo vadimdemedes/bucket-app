@@ -1,0 +1,11 @@
+.breadcrumb a:hover {
+	text-decoration: none;
+}
+
+.breadcrumb-image {
+	width: 28px;
+  border-radius: 14px;
+  display: inline-block;
+  position: absolute;
+  left: -40px;
+}

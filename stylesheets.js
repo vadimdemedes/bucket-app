@@ -15,6 +15,9 @@ const fs = require('fs');
  */
 
 let source = fs.readFileSync(process.argv.pop(), 'utf8');
+
+process.chdir(__dirname + '/styles');
+
 let output = rework(source, { source: 'app.css' })
 	.use(npm())
 	.use(myth())

@@ -1,0 +1,9 @@
+.bucket-name {
+	border: 0;
+  font-size: 2.4rem;
+  font-weight: bold;
+  height: auto !important;
+  padding: 0 !important;
+  outline: none;
+  width: 100%;
+}

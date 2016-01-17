@@ -1,0 +1,19 @@
+.underline {
+	border-bottom: 1px solid;
+
+	/* override basscss default */
+	text-decoration: none !important;
+}
+
+.block-center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.visible {
+	opacity: 1;
+}
+
+.hidden {
+	opacity: 0;
+}

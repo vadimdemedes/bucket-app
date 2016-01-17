@@ -22,7 +22,7 @@ const Plain = React.createClass({
 			formatted = value;
 		}
 
-		return <div className="result">
+		return <div className="bucket-row-output">
 			<Editor
 				lineNumbers={ false }
 				mode="javascript"

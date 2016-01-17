@@ -1,0 +1,19 @@
+:root {
+	--button-background-color: #41B3FF;
+	--button-color: #fff;
+	--button-padding-y: 1rem;
+}
+
+.btn-primary {
+	border: 1px solid #1fa5ff;
+}
+
+.btn img {
+	width: 20px;
+  vertical-align: sub;
+	margin-right: 10px;
+}
+
+.btn-lg {
+	padding: var(--space-2) var(--space-3);
+}

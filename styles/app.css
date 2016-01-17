@@ -15,8 +15,8 @@
 @import 'basscss-btn';
 @import 'basscss-btn-primary';
 @import 'basscss-btn-outline';
-@import './node_modules/codemirror/lib/codemirror.css';
-@import './node_modules/codemirror/theme/neo.css';
+@import '../node_modules/codemirror/lib/codemirror.css';
+@import '../node_modules/codemirror/theme/neo.css';
 
 :root {
 	--font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, sans-serif;
@@ -48,145 +48,20 @@ a {
 	color: #41B3FF;
 }
 
-.black {
-	color: #333;
-}
-
-.underline {
-	border-bottom: 1px solid;
-
-	/* override basscss default */
-	text-decoration: none !important;
-}
-
-.block-center {
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.header {
-	margin-bottom: 2rem;
-}
-
-.header:hover a, .header:hover button {
-	color: #444 !important;
-}
-
-.header a, .header button {
-	color: #ddd !important;
-	transition: color 100ms cubic-bezier(0.55, 0.09, 0.68, 0.53);
-}
-
-.header a:hover {
-	text-decoration: none;
-}
-
-.breadcrumb a:hover {
-	text-decoration: none;
-}
-
-.breadcrumb-image {
-	width: 28px;
-  border-radius: 14px;
-  display: inline-block;
-  position: absolute;
-  left: -40px;
-}
+@import './components/loading-indicator';
+@import './components/breadcrumb';
+@import './components/bucket-row';
+@import './components/header';
+@import './components/bucket';
+@import './components/button';
+@import './components/editor';
+@import './colors';
+@import './utils';
 
 .logo-image {
 	width: 64px;
 }
 
-.bucket-name {
-	border: 0;
-  font-size: 2.4rem;
-  font-weight: bold;
-  height: auto !important;
-  padding: 0 !important;
-  outline: none;
-  width: 100%;
-}
-
-.row {
-	margin-bottom: 2rem;
-}
-
-:root {
-	--button-background-color: #41B3FF;
-	--button-color: #fff;
-	--button-padding-y: 1rem;
-}
-
-.btn-primary {
-	border: 1px solid #1fa5ff;
-}
-
-.btn-primary img {
-	width: 20px;
-  vertical-align: sub;
-	margin-right: 10px;
-}
-
-.btn-lg {
-	padding: var(--space-2) var(--space-3);
-}
-
-.result {
-	border: 1px solid #eee;
-	padding: 0.5rem 1rem;
-  margin-top: 1rem;
-}
-
-.result.error {
-	border: 0;
-	background: #e54331;
-}
-
-.result.error .CodeMirror {
-	background: #e54331;
-	color: #fff;
-}
-
-.visible {
-	opacity: 1;
-}
-
-.hidden {
-	opacity: 0;
-}
-
 .map {
-	margin-top: 2rem;
 	height: 400px;
 }
-
-.loading-indicator {
-	position: absolute;
-	top: 10px;
-	right: 10px;
-	padding: .4rem 1rem;
-	border: 1px solid lighten(#526ed0, 20%);
-	border-radius: 4px;
-	color: #526ed0;
-}
-
-.loading-indicator img {
-	width: 12px;
-	margin-right: 6px;
-}
-
-.CodeMirror {
-	font-family: var(--monospace-font-family);
-	height: auto;
-}
-
-.CodeMirror-empty {
-	color: #ccc !important;
-}
-
-.cm-header-1 { font-size: var(--h1) }
-.cm-header-2 { font-size: var(--h2) }
-.cm-header-3 { font-size: var(--h3) }
-.cm-header-4 { font-size: var(--h4) }
-.cm-header-5 { font-size: var(--h5) }
-.cm-header-6 { font-size: var(--h6) }
