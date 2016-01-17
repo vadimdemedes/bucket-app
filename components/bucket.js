@@ -92,7 +92,7 @@ const Bucket = React.createClass({
 		// if output has error, display it
 		// otherwise render what user wants
 		// defaulting to 'plain'
-		let selectedOutputType = allOutput.error ? 'error' : (row.selectedOutputType || 'plain');
+		let selectedOutputType = allOutput.error ? 'error' : (row.selectedOutput || 'plain');
 		let outputTypes = Object.keys(allOutput);
 		let output = allOutput[selectedOutputType];
 
