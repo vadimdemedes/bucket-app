@@ -52,12 +52,12 @@ const Header = React.createClass({
 		}
 
 		let props = {
-			className: 'btn btn-outline',
-			onClick: this.props.onLogOut
+			href: '#',
+			onClick: this.logOut
 		};
 
 		return <li>
-			<button { ...props }>Log Out</button>
+			<a { ...props }>Log Out</a>
 		</li>;
 	},
 
@@ -65,6 +65,12 @@ const Header = React.createClass({
 		e.preventDefault();
 
 		this.props.onLogIn();
+	},
+
+	logOut: function (e) {
+		e.preventDefault();
+
+		this.props.onLogOut();
 	}
 });
 
