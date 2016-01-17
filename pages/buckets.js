@@ -8,11 +8,9 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import React from 'react';
 
-import { userPath } from '../helpers/urls';
+import UserBreadcrumb from '../components/user-breadcrumb';
 import BucketList from '../components/bucket-list';
-import Breadcrumb from '../components/breadcrumb';
 import Actions from '../actions';
-import Link from '../components/link';
 
 
 /**
@@ -49,9 +47,7 @@ const BucketsPage = React.createClass({
 		return <div>
 			<div className="clearfix">
 				<div className="left">
-					<Breadcrumb image={ user.profileImageURL }>
-						<Link to={ userPath(user.username) } className="bold">{ user.username }</Link>
-					</Breadcrumb>
+					<UserBreadcrumb user={ user } />
 				</div>
 
 				<div className="right">

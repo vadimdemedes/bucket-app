@@ -9,11 +9,10 @@ import { connect } from 'react-redux';
 import slugify from 'slugg';
 import React from 'react';
 
-import { userPath, bucketPath } from '../helpers/urls';
-import Breadcrumb from '../components/breadcrumb';
+import BucketBreadcrumb from '../components/bucket-breadcrumb';
+import { bucketPath } from '../helpers/urls';
 import Actions from '../actions';
 import Bucket from '../components/bucket';
-import Link from '../components/link';
 
 
 /**
@@ -74,11 +73,7 @@ const BucketPage = React.createClass({
 		};
 
 		return <div>
-			<Breadcrumb image={ user.profileImageURL }>
-				<Link to={ userPath(user.username) }>{ user.username }</Link>
-				<Link to={ bucketPath(user.username, bucket.slug) } className="bold">{ bucket.slug }</Link>
-			</Breadcrumb>
-
+			<BucketBreadcrumb user={ user } bucket={ bucket } />
 			<Bucket { ...props } />
 		</div>;
 	},
