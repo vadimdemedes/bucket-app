@@ -4,7 +4,7 @@
     "start": "PORT=3000 node server public",
     "scripts": "browserify -t babelify -t [ envify purge ] app.js > public/app.js",
     "styles": "node stylesheets styles/app.css > public/app.css",
-    "test": "ava --require babel-core/register --verbose"
+    "test": "xo; ava"
   },
   "devDependencies": {
     "ava": "^0.10.0",
@@ -13,7 +13,10 @@
     "babelify": "^7.2.0",
     "browserify": "^12.0.1",
     "envify": "vdemedes/envify#env-files",
+    "eslint": "^1.10.3",
     "eslint-config-vdemedes": "^1.0.0",
+    "eslint-config-xo-react": "^0.3.0",
+    "eslint-plugin-react": "^3.15.0",
     "koa": "^1.1.2",
     "koa-static": "^1.5.2",
     "less": "^2.5.3",
@@ -61,7 +64,15 @@
     "url-join": "0.0.1"
   },
   "xo": {
-    "extends": "vdemedes",
+    "ignores": "public/*.js",
+    "extends": [
+      "vdemedes",
+      "xo-react"
+    ],
     "env": "browser"
+  },
+  "ava": {
+    "require": "babel-core/register",
+    "verbose": true
   }
 }
