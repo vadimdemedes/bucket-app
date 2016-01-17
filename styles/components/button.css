@@ -1,9 +1,3 @@
-:root {
-	--button-background-color: transparent;
-	--button-color: #fff;
-	--button-padding-y: 1rem;
-}
-
 .btn-primary {
 	border: 1px solid #1fa5ff;
 }

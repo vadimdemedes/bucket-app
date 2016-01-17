@@ -16,7 +16,7 @@ import Link from './link';
 
 const Header = React.createClass({
 	render: function () {
-		return <header className="container header clearfix">
+		return <header className="container header px2 md-px0 clearfix">
 			<ul className="left list-reset">
 				{ this.leftItems() }
 			</ul>

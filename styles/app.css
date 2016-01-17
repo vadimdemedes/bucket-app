@@ -11,6 +11,7 @@
 @import 'basscss-typography';
 @import 'basscss-type-scale';
 @import 'basscss-responsive-states';
+@import 'basscss-responsive-white-space';
 @import 'basscss-borders';
 @import 'basscss-btn';
 @import 'basscss-btn-primary';
@@ -28,6 +29,13 @@
 	--h5: 1.6rem;
 	--h6: 1.4rem;
 	--container-width: 90rem;
+	--button-background-color: transparent;
+	--button-color: #fff;
+	--button-padding-y: 1rem;
+	--black: #333;
+	--blue: #41B3FF;
+	--red: #e54331;
+	--white: #fff;
 }
 
 html {

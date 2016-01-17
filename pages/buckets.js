@@ -44,7 +44,7 @@ const BucketsPage = React.createClass({
 			return <div></div>;
 		}
 
-		return <div className="container">
+		return <div className="container px2 md-px0">
 			<div className="clearfix">
 				<div className="left">
 					<UserBreadcrumb user={ user } />

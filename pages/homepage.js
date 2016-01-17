@@ -46,7 +46,7 @@ const HomePage = React.createClass({
 
 			<div className="container py4">
 				<div className="clearfix mt4 py2">
-					<div className="md-col md-col-6 px4">
+					<div className="md-col md-col-6 px2 md-px4">
 						<h2 className="mt0">Live code playground</h2>
 						<p>
 							Impress users by providing code examples, that they can edit,
@@ -54,27 +54,27 @@ const HomePage = React.createClass({
 						</p>
 					</div>
 
-					<div className="md-col md-col-6">
+					<div className="md-col md-col-6 px2 md-px0 mt3 md-mt0">
 						{ this.codeExample() }
 					</div>
 				</div>
 
 				<div className="clearfix mt4 py2">
-					<div className="md-col md-col-6 px4">
+					<div className="md-col md-col-6 px2 md-px4">
 						<h2 className="mt0">Markdown documentation</h2>
 						<p>
 							Guide user through your code using markdown text blocks.
 						</p>
 					</div>
 
-					<div className="md-col md-col-6">
+					<div className="md-col md-col-6 px2 md-px0 mt3 md-mt0">
 						{ this.textExample() }
 					</div>
 				</div>
 			</div>
 
 			<div className="py4 bg-blue white">
-				<h2 className="center">
+				<h2 className="center mt0">
 					Integrated with
 					<img src="/images/npm.svg" className="npm-logo ml2 mr2" />
 					and
@@ -82,7 +82,7 @@ const HomePage = React.createClass({
 				</h2>
 
 				<div className="container clearfix mt4">
-					<div className="md-col md-col-6 px2 py4">
+					<div className="md-col md-col-6 px2 py2 md-py4">
 						<h3 className="underline inline-block mt0">Require any NPM module</h3>
 						<p>
 							All core Node.js module (fs, path, ...) and any module available on NPM can also be used in your code.
@@ -93,7 +93,7 @@ const HomePage = React.createClass({
 						</p>
 					</div>
 
-					<div className="md-col md-col-6 px2 py4">
+					<div className="md-col md-col-6 px2 py2 md-py4">
 						<h3 className="underline inline-block mt0">Connect with a GitHub repository</h3>
 						<span className="h5 border border-white rounded bold px1 ml2">SOON</span>
 
