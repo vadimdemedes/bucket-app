@@ -32,6 +32,8 @@ export function loadUser (username) {
 		return User.find(username)
 			.then(user => {
 				dispatch(setUser(user));
+
+				return user;
 			});
 	};
 }

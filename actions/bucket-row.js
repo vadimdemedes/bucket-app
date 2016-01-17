@@ -38,6 +38,8 @@ export function watchBucketRows () {
 		let rows = getState().rows.map(row => BucketRow.unserialize(row));
 
 		rows.forEach(row => {
+			// firebase sends first event with current value
+			// so we need not to treat it as update
 			let skippedFirstValue = false;
 
 			row.ref().child('output').on('value', snapshot => {
@@ -58,6 +60,7 @@ export function watchBucketRows () {
 			});
 		});
 
+		// return unsubscribe function, redux style
 		return () => {
 			rows.forEach(row => row.ref().off());
 		};
@@ -92,6 +95,8 @@ export function createBucketRow (data) {
 			value: ''
 		}).then(row => {
 			dispatch(addBucketRow(row));
+			
+			return row;
 		});
 	};
 }
@@ -131,7 +136,6 @@ export function saveBucketRow (data) {
 
 		let row = BucketRow.unserialize(state.rows[data.index]);
 		row.set(data);
-
 		dispatch(updateBucketRow(data));
 
 		return row.save({ update: true });
@@ -147,6 +151,7 @@ export function deleteBucketRow (data) {
 	return (dispatch, getState) => {
 		let state = getState();
 
+		// can't delete the only row left
 		if (data.index === 0 && state.rows.length === 1) {
 			return;
 		}

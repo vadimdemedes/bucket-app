@@ -23,9 +23,9 @@ import { bucketPath } from '../helpers/urls';
 
 export function runBucket () {
 	return (dispatch, getState) => {
-		let bucket = getState().bucket;
-
 		dispatch(showLoadingIndicator());
+
+		let bucket = getState().bucket;
 
 		return fetch('https://factory.onbucket.com/run/' + bucket.id, {
 			method: 'post'
@@ -94,12 +94,14 @@ export function createBucket () {
 
 		return Bucket.create(user)
 			.then(bucket => {
-				return dispatch(createBucketRow({
-					bucket: bucket.get('id')
-				})).then(() => bucket);
+				let id = bucket.get('id');
+
+				return dispatch(createBucketRow({ bucket: id })).then(() => bucket);
 			})
 			.then(bucket => {
 				dispatch(transitionTo(bucketPath(user.username, bucket.get('slug'))));
+
+				return bucket;
 			});
 	};
 }
@@ -118,21 +120,29 @@ export function setBucket (bucket) {
 
 
 /**
- * Update current bucket
+ * Save current bucket
  */
 
-export function updateBucket (data) {
+export function saveBucket (data) {
 	return (dispatch, getState) => {
 		let state = getState();
 
 		let bucket = Bucket.unserialize(state.bucket);
 		bucket.set(data);
-
-		dispatch({
-			type: ActionTypes.UPDATE_BUCKET,
-			data: data
-		});
+		dispatch(updateBucket(data));
 
 		return bucket.save({ update: true });
+	};
+}
+
+
+/**
+ * Update current bucket
+ */
+
+export function updateBucket (data) {
+	return {
+		type: ActionTypes.UPDATE_BUCKET,
+		data: data
 	};
 }

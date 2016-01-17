@@ -83,7 +83,7 @@ const BucketPage = React.createClass({
 		let actions = this.props.actions;
 		let slug = slugify(name);
 
-		actions.updateBucket({ name, slug });
+		actions.saveBucket({ name, slug });
 		actions.transitionTo(bucketPath(this.props.params.user, slug), { replace: true });
 	}
 });
