@@ -1,3 +1,9 @@
-.black {
-	color: #333;
+:root {
+	--black: #333;
+	--blue: #41B3FF;
+	--red: #e54331;
 }
+
+.black { color: var(--black) }
+.blue { color: var(--blue) }
+.red { color: var(--red) }

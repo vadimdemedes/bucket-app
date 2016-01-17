@@ -5,7 +5,7 @@
 	padding: .4rem 1rem;
 	border: 1px solid lighten(#526ed0, 20%);
 	border-radius: 4px;
-	color: #526ed0;
+	color: var(--blue);
 }
 
 .loading-indicator img {

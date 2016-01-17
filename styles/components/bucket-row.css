@@ -6,10 +6,10 @@
 
 .bucket-row-output.is-error {
 	border: 0;
-	background: #e54331;
+	background: var(--red);
 }
 
 .bucket-row-output.is-error .CodeMirror {
-	background: #e54331;
+	background: var(--red);
 	color: #fff;
 }

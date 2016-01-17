@@ -37,7 +37,7 @@ html {
 }
 
 body {
-	color: #333;
+	color: var(--black);
 	text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -45,7 +45,7 @@ body {
 
 a {
 	text-decoration: none;
-	color: #41B3FF;
+	color: var(--blue);
 }
 
 @import './components/loading-indicator';

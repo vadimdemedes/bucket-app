@@ -72,7 +72,7 @@ const BucketsPage = React.createClass({
 
 		let actions = this.props.actions;
 		let props = {
-			className: 'btn btn-outline',
+			className: 'btn btn-outline blue',
 			href: '#',
 			onClick: actions.createBucket
 		};
