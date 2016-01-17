@@ -62,6 +62,17 @@ a {
 	width: 64px;
 }
 
+
+/* npm, github and heart on homepage */
+.npm-logo, .github-logo, .heart-icon {
+	height: 22px;
+  position: relative;
+}
+
+.npm-logo { top: 4px }
+.github-logo { top: 2px }
+.heart-icon { top: 4px }
+
 .map {
 	height: 400px;
 }

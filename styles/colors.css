@@ -2,8 +2,17 @@
 	--black: #333;
 	--blue: #41B3FF;
 	--red: #e54331;
+	--white: #fff;
 }
 
 .black { color: var(--black) }
 .blue { color: var(--blue) }
 .red { color: var(--red) }
+.white { color: var(--white) }
+
+.bg-black { background-color: var(--black) }
+.bg-blue { background-color: var(--blue) }
+.bg-red { background-color: var(--red) }
+.bg-white { background-color: var(--white) }
+
+.border-white { border-color: var(--white) }
