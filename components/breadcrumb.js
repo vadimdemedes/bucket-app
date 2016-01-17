@@ -4,6 +4,7 @@
  * Dependencies
  */
 
+import flatten from 'arr-flatten';
 import React from 'react';
 
 
@@ -13,8 +14,8 @@ import React from 'react';
 
 const Breadcrumb = React.createClass({
 	render: function () {
-		let children = this.props.children;
-		let items = [];
+		let items = React.Children.map(this.props.children, this.breadcrumbItem);
+		items = flatten(items);
 
 		if (this.props.image) {
 			let props = {
@@ -24,31 +25,35 @@ const Breadcrumb = React.createClass({
 			};
 
 			let image = <img { ...props } />;
-			items.push(image);
+			items.unshift(image);
 		}
-
-		React.Children.forEach(children, (item, index) => {
-			let props = {
-				key: 'item' + index
-			};
-
-			let wrappedItem = <span { ...props }>{ item }</span>;
-			items.push(wrappedItem);
-
-			if (index + 1 < children.length) {
-				let props = {
-					key: 'separator' + index,
-					className: 'ml1 mr1'
-				};
-
-				let separator = <span { ...props }>/</span>;
-				items.push(separator);
-			}
-		});
 
 		return <div className="breadcrumb relative">
 			{ items }
 		</div>;
+	},
+
+	breadcrumbItem: function (item, index) {
+		let result = [];
+		let props = {
+			key: 'item' + index
+		};
+
+		// all items need to be wrapped into <span> with a key
+		let wrappedItem = <span { ...props }>{ item }</span>;
+		result.push(wrappedItem);
+
+		if (index + 1 < this.props.children.length) {
+			let props = {
+				key: 'separator' + index,
+				className: 'ml1 mr1'
+			};
+
+			let separator = <span { ...props }>/</span>;
+			result.push(separator);
+		}
+
+		return result;
 	}
 });
 

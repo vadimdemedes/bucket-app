@@ -23,6 +23,7 @@
     "xo": "^0.12.1"
   },
   "dependencies": {
+    "arr-flatten": "^1.0.1",
     "backbone": "^1.2.3",
     "basscss-align": "^1.0.1",
     "basscss-base-forms": "^2.0.0",
