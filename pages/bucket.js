@@ -69,7 +69,8 @@ const BucketPage = React.createClass({
 			onChangeName: this.updateName,
 			onDeleteRow: actions.deleteBucketRow,
 			onUpdateRow: actions.saveBucketRow,
-			onAddRow: actions.createBucketRow
+			onAddRow: actions.createBucketRow,
+			onRun: actions.runBucket
 		};
 
 		return <div>
