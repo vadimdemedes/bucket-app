@@ -43,6 +43,7 @@ const Breadcrumb = React.createClass({
 		let wrappedItem = <span { ...props }>{ item }</span>;
 		result.push(wrappedItem);
 
+		// detect whether we need to insert a separator
 		if (index + 1 < this.props.children.length) {
 			let props = {
 				key: 'separator' + index,

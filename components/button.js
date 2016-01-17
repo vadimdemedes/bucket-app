@@ -30,7 +30,12 @@ const Button = React.createClass({
 		// add any custom class names
 		className += this.props.className || '';
 
-		return <button className={ className } onClick={ this.props.onClick }>
+		let props = {
+			className: className,
+			onClick: this.props.onClick
+		};
+
+		return <button { ...props }>
 			{ this.props.children }
 		</button>;
 	}

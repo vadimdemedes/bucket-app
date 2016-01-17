@@ -27,7 +27,7 @@ const BucketBreadcrumb = React.createClass({
 			<Link to={ bucketPath(user.username, bucket.slug) } className="bold">
 				{ bucket.slug }
 			</Link>
-		</Breadcrumb>
+		</Breadcrumb>;
 	}
 });
 

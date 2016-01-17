@@ -87,6 +87,7 @@ const Bucket = React.createClass({
 	},
 
 	row: function (row, index, children) {
+		// TODO: make this function cleaner
 		let allOutput = row.output || {};
 
 		// if output has error, display it
