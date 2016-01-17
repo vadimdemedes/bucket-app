@@ -41,21 +41,29 @@ const Header = React.createClass({
 
 	rightItems: function () {
 		if (!this.props.user) {
+			let props = {
+				href: '#',
+				onClick: this.logIn
+			};
+
 			return <li>
-				<a href="#" onClick={ this.logIn }>Log In</a>
+				<a { ...props }>Log In</a>
 			</li>;
 		}
 
+		let props = {
+			className: 'btn btn-outline',
+			onClick: this.props.onLogOut
+		};
+
 		return <li>
-			<button
-				className="btn btn-outline"
-				onClick={ this.props.onLogOut }>Log Out</button>
+			<button { ...props }>Log Out</button>
 		</li>;
 	},
 
 	logIn: function (e) {
 		e.preventDefault();
-
+		
 		this.props.onLogIn();
 	}
 });

@@ -17,20 +17,31 @@ const Breadcrumb = React.createClass({
 		let items = [];
 
 		if (this.props.image) {
-			let image = <img
-				key={ 'picture' }
-				src={ this.props.image }
-				className="breadcumb-image" />;
+			let props = {
+				key: 'picture',
+				src: this.props.image,
+				className: 'breadcrumb-image'
+			};
 
+			let image = <img { ...props } />;
 			items.push(image);
 		}
 
 		React.Children.forEach(children, (item, index) => {
-			let wrappedItem = <span key={ 'item' + index }>{ item }</span>;
+			let props = {
+				key: 'item' + index
+			};
+
+			let wrappedItem = <span { ...props }>{ item }</span>;
 			items.push(wrappedItem);
 
 			if (index + 1 < children.length) {
-				let separator = <span key={ 'separator' + index } className="ml1 mr1">/</span>;
+				let props = {
+					key: 'separator' + index,
+					className: 'ml1 mr1'
+				};
+
+				let separator = <span { ...props }>/</span>;
 				items.push(separator);
 			}
 		});

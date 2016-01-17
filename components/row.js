@@ -23,7 +23,6 @@ const Row = React.createClass({
 
 	render: function () {
 		let showActions = this.state.showActions;
-
 		if (this.props.readOnly) {
 			showActions = false;
 		}
@@ -31,26 +30,26 @@ const Row = React.createClass({
 		let classes = [
 			'clearfix',
 			showActions ? 'visible' : 'hidden'
-		].join(' ');
+		];
 
-		return <div className="row" onMouseEnter={ this.onMouseEnter } onMouseLeave={ this.onMouseLeave }>
+		let props = {
+			className: 'row',
+			onMouseEnter: this.onMouseEnter,
+			onMouseLeave: this.onMouseLeave
+		};
+
+		return <div { ...props }>
 			<div>
 				{ this.props.children }
 			</div>
 
 			{ this.output() }
 
-			<div className={ classes }>
+			<div className={ classes.join(' ') }>
 				{ this.outputTypes() }
 				{ this.actions() }
 			</div>
 		</div>;
-	},
-
-	runButton: function () {
-		if (this.props.type === 'code') {
-			return <a className="gray btn" onClick={ this.props.onRun }>Run</a>;
-		}
 	},
 
 	output: function () {
@@ -72,21 +71,27 @@ const Row = React.createClass({
 		}
 
 		let types = this.props.outputTypes;
-
 		if (types.length <= 1) {
 			return;
 		}
 
 		let options = types.map(item => {
-			return <option value={ item } key={ item }>{ item }</option>;
+			let props = {
+				value: item,
+				key: item
+			};
+
+			return <option { ...props }>{ item }</option>;
 		});
 
+		let props = {
+			value: this.props.selectedOutputType,
+			size: 1,
+			onChange: this.changeOutputType
+		};
+
 		return <div className="left">
-			<select
-				value={ this.props.selectedOutputType }
-				size="1"
-				onChange={ this.changeOutputType }
-			>{ options }</select>
+			<select { ...props }>{ options }</select>
 		</div>;
 	},
 
@@ -95,14 +100,52 @@ const Row = React.createClass({
 			return;
 		}
 
-		let runButton = this.runButton();
-
 		return <div className="right">
-			{ runButton }
-			<a className="gray btn" onClick={ this.props.onAddText }>Add Text</a>
-			<a className="gray btn" onClick={ this.props.onAddCode }>Add Code</a>
-			<a className="gray btn" onClick={ this.props.onDelete }>Delete</a>
+			{ this.runButton() }
+			{ this.addTextButton() }
+			{ this.addCodeButton() }
+			{ this.deleteButton() }
 		</div>;
+	},
+
+	runButton: function () {
+		if (this.props.type !== 'code') {
+			return;
+		}
+
+		let props = {
+			className: 'btn gray',
+			onClick: this.props.onRun
+		};
+
+		return <a { ...props }>Run</a>;
+	},
+
+	addTextButton: function () {
+		let props = {
+			className: 'btn gray',
+			onClick: this.props.onAddText
+		};
+
+		return <a { ...props }>Add Text</a>;
+	},
+
+	addCodeButton: function () {
+		let props = {
+			className: 'btn gray',
+			onClick: this.props.onAddCode
+		};
+
+		return <a { ...props }>Add Code</a>;
+	},
+
+	deleteButton: function () {
+		let props = {
+			className: 'btn gray',
+			onClick: this.props.onDelete
+		};
+
+		return <a { ...props }>Delete</a>;
 	},
 
 	hasOutput: function () {
@@ -110,15 +153,11 @@ const Row = React.createClass({
 	},
 
 	onMouseEnter: function () {
-		this.setState({
-			showActions: true
-		});
+		this.setState({ showActions: true });
 	},
 
 	onMouseLeave: function () {
-		this.setState({
-			showActions: false
-		});
+		this.setState({ showActions: false });
 	},
 
 	changeOutputType: function (e) {

@@ -15,6 +15,16 @@ import store from '../shared/store';
  */
 
 const Link = React.createClass({
+	render: function () {
+		let props = {
+			className: this.props.className,
+			href: this.props.to,
+			onClick: this.navigate
+		};
+
+		return <a { ...props }>{ this.props.children }</a>;
+	},
+
 	navigate: function (e) {
 		e.preventDefault();
 
@@ -23,14 +33,6 @@ const Link = React.createClass({
 		}
 
 		store.dispatch(transitionTo(this.props.to));
-	},
-
-	render: function () {
-		return <a
-			href={ this.props.to }
-			className={ this.props.className }
-			onClick={ this.navigate }
-		>{ this.props.children }</a>;
 	}
 });
 

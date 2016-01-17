@@ -16,23 +16,25 @@ import Link from './link';
 
 const BucketList = React.createClass({
 	render: function () {
-		let user = this.props.user;
-
-		let buckets = this.props.buckets.map(bucket => {
-			return <li key={ bucket.id }>
-				<Link to={ bucketPath(user, bucket.slug) }>
-					{ bucket.slug }
-				</Link>
-
-				<p>
-					{ bucket.name }
-				</p>
-			</li>;
-		});
+		let buckets = this.props.buckets.map(this.listItem);
 
 		return <ul className="list-reset">
 			{ buckets }
 		</ul>;
+	},
+
+	listItem: function (bucket) {
+		let user = this.props.user;
+
+		return <li key={ bucket.id }>
+			<Link to={ bucketPath(user, bucket.slug) }>
+				{ bucket.slug }
+			</Link>
+
+			<p>
+				{ bucket.name }
+			</p>
+		</li>;
 	}
 });
 

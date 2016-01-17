@@ -15,14 +15,16 @@ import Editor from './editor';
 
 const Code = React.createClass({
 	render: function () {
-		return <Editor
-			placeholder={ this.props.placeholder }
-			autoFocus={ this.props.autoFocus }
-			readOnly={ this.props.readOnly }
-			mode="javascript"
-			ref="editor"
-			onChange={ this.props.onChange }
-		>{ this.props.children }</Editor>;
+		let props = {
+			placeholder: this.props.placeholder,
+			autoFocus: this.props.autoFocus,
+			readOnly: this.props.readOnly,
+			mode: 'javascript',
+			ref: 'editor',
+			onChange: this.props.onChange
+		};
+
+		return <Editor { ...props }>{ this.props.children }</Editor>;
 	},
 
 	getValue: function () {

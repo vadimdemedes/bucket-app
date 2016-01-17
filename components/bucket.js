@@ -32,11 +32,14 @@ const Bucket = React.createClass({
 			return <h1 className="mt0">{ this.props.name }</h1>;
 		}
 
-		return <input
-			type="text"
-			className="bucket-name"
-			value={ this.props.name }
-			onChange={ this.changeName } />;
+		let props = {
+			type: 'text',
+			value: this.props.name,
+			className: 'bucket-name',
+			onChange: this.changeName
+		};
+
+		return <input { ...props } />;
 	},
 
 	rows: function () {
@@ -59,54 +62,55 @@ const Bucket = React.createClass({
 
 	text: function (row, index) {
 		let placeholder = row.value ? '' : 'Start typing...';
+		let props = {
+			placeholder: placeholder,
+			autoFocus: row.isNew,
+			readOnly: this.props.readOnly,
+			ref: 'row' + index,
+			onChange: this.save
+		};
 
-		return <Text
-			placeholder={ placeholder }
-			autoFocus={ row.isNew }
-			readOnly={ this.props.readOnly }
-			onChange={ this.save }
-			ref={ 'row' + index }>{ row.value }</Text>;
+		return <Text { ...props }>{ row.value }</Text>;
 	},
 
 	code: function (row, index) {
 		let placeholder = row.value ? '' : '// Start typing...';
+		let props = {
+			placeholder: placeholder,
+			autoFocus: row.isNew,
+			readOnly: this.props.readOnly,
+			ref: 'row' + index,
+			onChange: this.save
+		};
 
-		return <Code
-			placeholder={ placeholder }
-			autoFocus={ row.isNew }
-			readOnly={ this.props.readOnly }
-			ref={ 'row' + index }
-			onChange={ this.save }>{ row.value }</Code>;
+		return <Code { ...props }>{ row.value }</Code>;
 	},
 
 	row: function (row, index, children) {
-		let hasOutput = row.type === 'code' && !!row.output;
-		let output, outputTypes, selectedOutputType;
+		let allOutput = row.output || {};
 
-		if (hasOutput) {
-			if (row.output.error) {
-				output = row.output.error;
-				outputTypes = [];
-				selectedOutputType = 'error';
-			} else {
-				output = row.output[row.selectedOutput || 'plain'];
-				outputTypes = Object.keys(row.output);
-				selectedOutputType = row.selectedOutput || 'plain';
-			}
-		}
+		// if output has error, display it
+		// otherwise render what user wants
+		// defaulting to 'plain'
+		let selectedOutputType = allOutput.error ? 'error' : (row.selectedOutputType || 'plain');
+		let outputTypes = Object.keys(allOutput);
+		let output = allOutput[selectedOutputType];
 
-		return <Row
-			type={ row.type }
-			key={ row.id }
-			readOnly={ this.props.readOnly }
-			output={ output }
-			outputTypes={ outputTypes }
-			selectedOutputType={ selectedOutputType }
-			onRun={ this.props.onRun }
-			onAddText={ this.addRow.bind(this, index, 'text') }
-			onAddCode={ this.addRow.bind(this, index, 'code') }
-			onDelete={ this.deleteRow.bind(this, index) }
-			onChangeOutputType={ this.changeOutputType.bind(this, index) }>{ children }</Row>;
+		let props = {
+			selectedOutputType: selectedOutputType,
+			outputTypes: outputTypes,
+			readOnly: this.props.readOnly,
+			output: output,
+			type: row.type,
+			key: row.id,
+			onChangeOutputType: this.changeOutputType.bind(this, index),
+			onAddText: this.addRow.bind(this, index, 'text'),
+			onAddCode: this.addRow.bind(this, index, 'code'),
+			onDelete: this.deleteRow.bind(this, index),
+			onRun: this.props.onRun
+		};
+
+		return <Row { ...props }>{ children }</Row>;
 	},
 
 	save: debounce(function () {
