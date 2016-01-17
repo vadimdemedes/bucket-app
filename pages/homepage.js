@@ -73,7 +73,7 @@ const HomePage = React.createClass({
 				</div>
 			</div>
 
-			<div className="py4 bg-blue white">
+			<div className="py4 md-mt4 bg-blue white">
 				<h2 className="center mt0">
 					Integrated with
 					<img src="/images/npm.svg" className="npm-logo ml2 mr2" />
