@@ -73,7 +73,7 @@ const BucketPage = React.createClass({
 			onRun: actions.runBucket
 		};
 
-		return <div>
+		return <div className="container">
 			<BucketBreadcrumb user={ user } bucket={ bucket } />
 			<Bucket { ...props } />
 		</div>;

@@ -28,7 +28,7 @@ const HomePage = React.createClass({
 	render: function () {
 		let actions = this.props.actions;
 
-		return <div className="py4">
+		return <div className="container py4">
 			<header className="center">
 				<img src="/images/logo.png" className="logo-image block block-center mb2" />
 				<Link to="/" className="h1 black">Bucket</Link>

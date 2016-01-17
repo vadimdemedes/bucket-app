@@ -16,7 +16,7 @@ import Link from './link';
 
 const Header = React.createClass({
 	render: function () {
-		return <header className="header clearfix">
+		return <header className="container header clearfix">
 			<ul className="left list-reset">
 				{ this.leftItems() }
 			</ul>
@@ -63,7 +63,7 @@ const Header = React.createClass({
 
 	logIn: function (e) {
 		e.preventDefault();
-		
+
 		this.props.onLogIn();
 	}
 });

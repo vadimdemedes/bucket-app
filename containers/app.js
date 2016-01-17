@@ -27,7 +27,7 @@ const App = React.createClass({
 			onLogOut: actions.logOut
 		};
 
-		return <div className="container mt2 px2">
+		return <div className="mt2">
 			<LoadingIndicator display={ this.props.loadingIndicator } />
 			<Header { ...headerProps } />
 
