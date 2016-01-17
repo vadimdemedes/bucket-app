@@ -15,9 +15,11 @@ import Button from './button';
 
 const LogInButton = React.createClass({
 	render: function () {
+		let label = this.props.label || 'Sign in with GitHub';
+
 		return <Button { ...this.props }>
 			<img src="/images/github-icon.svg" />
-			Sign in with GitHub
+			{ label }
 		</Button>;
 	}
 });

@@ -108,8 +108,13 @@ const HomePage = React.createClass({
 					</div>
 				</div>
 
-				<div className="center mt3">
-					<LogInButton color="white" type="outline" user={ this.props.authenticatedUser } onClick={ actions.logIn } />
+				<div className="center mt2">
+					<LogInButton
+						label="Get started with GitHub"
+						color="white"
+						type="outline"
+						user={ this.props.authenticatedUser }
+						onClick={ actions.logIn } />
 				</div>
 			</div>
 
