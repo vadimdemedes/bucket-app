@@ -67,7 +67,7 @@ const Row = React.createClass({
 	},
 
 	outputTypes: function () {
-		if (!this.hasOutput()) {
+		if (!this.hasOutput() || this.props.readOnly) {
 			return;
 		}
 
@@ -91,6 +91,10 @@ const Row = React.createClass({
 	},
 
 	actions: function () {
+		if (this.props.readOnly) {
+			return;
+		}
+
 		let runButton = this.runButton();
 
 		return <div className="right">

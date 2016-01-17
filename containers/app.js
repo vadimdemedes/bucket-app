@@ -21,7 +21,7 @@ const App = React.createClass({
 	render: function () {
 		let actions = this.props.actions;
 
-		return <div className="container">
+		return <div className="container mt2 px2">
 			<LoadingIndicator display={ this.props.loadingIndicator } />
 			<Header
 				user={ this.props.authenticatedUser }
