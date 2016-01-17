@@ -21,12 +21,15 @@ const App = React.createClass({
 	render: function () {
 		let actions = this.props.actions;
 
+		let headerProps = {
+			user: this.props.authenticatedUser,
+			onLogIn: actions.logIn,
+			onLogOut: actions.logOut
+		};
+
 		return <div className="container mt2 px2">
 			<LoadingIndicator display={ this.props.loadingIndicator } />
-			<Header
-				user={ this.props.authenticatedUser }
-				onLogIn={ actions.logIn }
-				onLogOut={ actions.logOut } />
+			<Header { ...headerProps } />
 
 			{ this.props.children }
 		</div>;
