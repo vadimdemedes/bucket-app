@@ -21,7 +21,14 @@ import { userPath } from '../helpers/urls';
  */
 
 export function logIn () {
-	return dispatch => {
+	return (dispatch, getState) => {
+		let user = getState().authenticatedUser;
+
+		if (user) {
+			dispatch(transitionTo(userPath(user.username)));
+			return Promise.resolve();
+		}
+
 		return User.logIn()
 			.then(user => {
 				dispatch(setAuthenticatedUser(user));
