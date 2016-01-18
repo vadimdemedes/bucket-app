@@ -83,9 +83,9 @@ const HomePage = React.createClass({
 
 				<div className="container clearfix mt4">
 					<div className="md-col md-col-6 px2 py2 md-py4">
-						<h3 className="underline inline-block mt0">Require any NPM module</h3>
+						<h3 className="underline inline-block mt0">Require any npm module</h3>
 						<p>
-							All core Node.js module (fs, path, ...) and any module available on NPM can also be used in your code.
+							All core Node.js module (fs, path, ...) and any module available on npm can also be used in your code.
 						</p>
 
 						<p>
