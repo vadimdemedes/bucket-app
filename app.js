@@ -69,14 +69,8 @@ const Dispatcher = React.createClass({
 	},
 
 	componentWillMount: function () {
-		router.on('route:homepage', () => {
-			this.transition(HomePage);
-		});
-
-		router.on('route:join', () => {
-			this.transition(JoinPage);
-		});
-
+		router.on('route:homepage', () => this.transition(HomePage));
+		router.on('route:join', () => this.transition(JoinPage));
 		router.on('route:buckets', user => {
 			this.transition(BucketsPage, { user });
 		});
