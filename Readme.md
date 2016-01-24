@@ -2,14 +2,14 @@
 
 <h1 align="center">
 	<br>
-	<img width="300" src="https://cdn.rawgit.com/vdemedes/bucket-app/master/media/logo.png" alt="Bucket">
+	<img width="300" src="media/logo.png" alt="Bucket">
 	<br>
 	<br>
 	<br>
 </h1>
 
 Make **interactive readme** for your Node.js projects.
-[Check out a live example](http://localhost:3000/vdemedes/what-is-bucket).
+[Check out a live example](https://onbucket.com/vdemedes/what-is-bucket).
 
 
 ## Features
