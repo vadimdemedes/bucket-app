@@ -2,7 +2,7 @@
 
 <h1 align="center">
 	<br>
-	<img width="300" src="media/logo.png" alt="Bucket">
+	<img width="200" src="media/logo.png" alt="Bucket">
 	<br>
 	<br>
 	<br>
