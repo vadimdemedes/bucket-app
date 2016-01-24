@@ -87,16 +87,19 @@ const Dispatcher = React.createClass({
 	},
 
 	render: function () {
+		let componentName;
 		let component;
 
 		if (this.state.component) {
+			componentName = this.state.component.WrappedComponent.displayName.toLowerCase().replace('page', '-page');
+
 			component = React.createElement(this.state.component, {
 				params: this.state.params
 			});
 		}
 
 		return <Provider store={ store }>
-			<App>
+			<App componentName={ componentName }>
 				{ component }
 			</App>
 		</Provider>;

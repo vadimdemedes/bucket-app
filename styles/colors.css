@@ -2,6 +2,7 @@
 .blue { color: var(--blue) }
 .red { color: var(--red) }
 .white { color: var(--white) }
+.grey { color: var(--grey) }
 
 .bg-black { background-color: var(--black) }
 .bg-blue { background-color: var(--blue) }

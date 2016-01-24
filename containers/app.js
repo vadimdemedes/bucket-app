@@ -21,13 +21,18 @@ const App = React.createClass({
 	render: function () {
 		let actions = this.props.actions;
 
+		let classes = [
+			'mt2',
+			this.props.componentName
+		];
+
 		let headerProps = {
 			user: this.props.authenticatedUser,
 			onLogIn: actions.logIn,
 			onLogOut: actions.logOut
 		};
 
-		return <div className="mt2">
+		return <div className={ classes.join(' ') }>
 			<LoadingIndicator display={ this.props.loadingIndicator } />
 			<Header { ...headerProps } />
 
