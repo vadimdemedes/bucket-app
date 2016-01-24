@@ -33,7 +33,7 @@ const Row = React.createClass({
 		];
 
 		let props = {
-			className: 'row py1',
+			className: 'row py1 mb3',
 			onMouseEnter: this.onMouseEnter,
 			onMouseLeave: this.onMouseLeave
 		};
