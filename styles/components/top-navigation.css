@@ -1,0 +1,15 @@
+.top-navigation button,
+.top-navigation a {
+	color: var(--grey);
+	transition: color 100ms cubic-bezier(0.55, 0.09, 0.68, 0.53);
+}
+
+.top-navigation:hover button,
+.top-navigation:hover a {
+	color: var(--black);
+}
+
+.home-page .top-navigation button,
+.home-page .top-navigation a {
+	color: var(--black) !important;
+}

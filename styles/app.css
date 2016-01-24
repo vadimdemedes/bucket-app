@@ -58,9 +58,9 @@ a {
 }
 
 @import './components/loading-indicator';
+@import './components/top-navigation';
 @import './components/breadcrumb';
 @import './components/bucket-row';
-@import './components/header';
 @import './components/bucket';
 @import './components/button';
 @import './components/editor';

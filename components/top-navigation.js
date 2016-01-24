@@ -11,12 +11,12 @@ import Link from './link';
 
 
 /**
- * Header component
+ * Top navigation component
  */
 
-const Header = React.createClass({
+const TopNavigation = React.createClass({
 	render: function () {
-		return <header className="container header px2 py2 md-px0 clearfix">
+		return <nav className="container top-navigation px2 py2 md-px0 clearfix">
 			<ul className="left list-reset">
 				{ this.leftItems() }
 			</ul>
@@ -24,7 +24,7 @@ const Header = React.createClass({
 			<ul className="right list-reset">
 				{ this.rightItems() }
 			</ul>
-		</header>;
+		</nav>;
 	},
 
 	leftItems: function () {
@@ -79,4 +79,4 @@ const Header = React.createClass({
  * Expose component
  */
 
-module.exports = Header;
+module.exports = TopNavigation;

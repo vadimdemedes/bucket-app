@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 
 import LoadingIndicator from '../components/loading-indicator';
-import Header from '../components/header';
+import TopNavigation from '../components/top-navigation';
 import Actions from '../actions';
 
 
@@ -26,7 +26,7 @@ const App = React.createClass({
 			this.props.componentName
 		];
 
-		let headerProps = {
+		let navProps = {
 			user: this.props.authenticatedUser,
 			onLogIn: actions.logIn,
 			onLogOut: actions.logOut
@@ -34,7 +34,7 @@ const App = React.createClass({
 
 		return <div className={ classes.join(' ') }>
 			<LoadingIndicator display={ this.props.loadingIndicator } />
-			<Header { ...headerProps } />
+			<TopNavigation { ...navProps } />
 
 			{ this.props.children }
 		</div>;
