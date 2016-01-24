@@ -8,7 +8,7 @@ import { showLoadingIndicator, hideLoadingIndicator } from './loading-indicator'
 import { transitionTo } from './transition';
 import { createBucketRow } from './bucket-row';
 import * as ActionTypes from '../constants/action-types';
-import serialize from '../util/serialize';
+import serialize from '../helpers/serialize';
 import Bucket from '../models/bucket';
 import { bucketPath } from '../helpers/urls';
 

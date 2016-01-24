@@ -7,7 +7,7 @@
 import Promise from 'pinkie-promise';
 
 import * as ActionTypes from '../constants/action-types';
-import serialize from '../util/serialize';
+import serialize from '../helpers/serialize';
 import User from '../models/user';
 
 

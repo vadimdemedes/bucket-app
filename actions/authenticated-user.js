@@ -6,7 +6,7 @@
 
 import { transitionTo } from './transition';
 import * as ActionTypes from '../constants/action-types';
-import serialize from '../util/serialize';
+import serialize from '../helpers/serialize';
 import User from '../models/user';
 import { userPath } from '../helpers/urls';
 

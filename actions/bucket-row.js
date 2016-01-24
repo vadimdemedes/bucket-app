@@ -6,7 +6,7 @@
 
 import * as ActionTypes from '../constants/action-types';
 import BucketRow from '../models/bucket-row';
-import serialize from '../util/serialize';
+import serialize from '../helpers/serialize';
 
 
 /**
@@ -95,7 +95,7 @@ export function createBucketRow (data) {
 			value: ''
 		}).then(row => {
 			dispatch(addBucketRow(row));
-			
+
 			return row;
 		});
 	};
