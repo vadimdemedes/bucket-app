@@ -71,7 +71,6 @@ a {
 	width: 64px;
 }
 
-
 /* npm, github and heart on homepage */
 .npm-logo, .github-logo, .heart-icon {
 	height: 22px;
@@ -82,6 +81,7 @@ a {
 .github-logo { top: 3px }
 .heart-icon { top: 4px }
 
+/* map renderer, to be removed */
 .map {
 	height: 400px;
 }

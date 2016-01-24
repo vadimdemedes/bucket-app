@@ -48,12 +48,12 @@ function transitionMiddleware () {
  * Store
  */
 
-const createAppStore = applyMiddleware(
+const createStoreWithMiddleware = applyMiddleware(
 	thunkMiddleware,
 	transitionMiddleware
 )(createStore);
 
-const store = createAppStore(appReducer);
+const store = createStoreWithMiddleware(appReducer);
 
 
 /**

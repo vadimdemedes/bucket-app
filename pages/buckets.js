@@ -51,7 +51,7 @@ const BucketsPage = React.createClass({
 				</div>
 
 				<div className="right">
-					{ this.newBucketButton() }
+					{ this.renderNewButton() }
 				</div>
 			</div>
 
@@ -59,7 +59,7 @@ const BucketsPage = React.createClass({
 		</div>;
 	},
 
-	newBucketButton: function () {
+	renderNewButton: function () {
 		let authenticatedUser = this.props.authenticatedUser;
 		if (!authenticatedUser) {
 			return;
