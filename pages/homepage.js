@@ -182,7 +182,7 @@ const HomePage = React.createClass({
 				{ /* height: 1px is needed for empty col to fill its space */ }
 				<div className="sm-col sm-col-3" style={{ height: '1px' }}></div>
 				<p className="sm-col sm-col-6 px2 sm-px0">
-					Bucket's frontend application is open-sourced on <a href="https://github.com/vdemedes/bucket">GitHub</a>.
+					Bucket's frontend application is open-sourced on <a href="https://github.com/vdemedes/bucket-app">GitHub</a>.
 					Feel free to contribute and help to shape Bucket's future!
 				</p>
 			</div>
