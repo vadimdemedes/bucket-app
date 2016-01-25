@@ -35,34 +35,37 @@ export function loadBucketRows (options) {
 
 export function watchBucketRows () {
 	return (dispatch, getState) => {
-		let rows = getState().rows.map(row => BucketRow.unserialize(row));
+		let bucket = getState().bucket;
 
-		rows.forEach(row => {
-			// firebase sends first event with current value
-			// so we need not to treat it as update
-			let skippedFirstValue = false;
+		// firebase sends first event with current value
+		// so we need not to treat it as update
+		let skippedFirstValue = false;
+		let rowsRef = BucketRow.rootRef.child('rows').child(bucket.id);
 
-			row.ref().child('output').on('value', snapshot => {
-				if (!skippedFirstValue) {
-					skippedFirstValue = true;
-					return;
-				}
+		rowsRef.on('value', snapshot => {
+			if (!skippedFirstValue) {
+				skippedFirstValue = true;
+				return;
+			}
+
+			snapshot.forEach(child => {
+				let row = child.val();
 
 				dispatch(updateBucketRow({
-					index: row.get('index'),
+					index: row.index,
 					output: null
 				}));
 
 				dispatch(updateBucketRow({
-					index: row.get('index'),
-					output: snapshot.val()
+					index: row.index,
+					output: row.output
 				}));
 			});
 		});
 
 		// return unsubscribe function, redux style
 		return () => {
-			rows.forEach(row => row.ref().off());
+			rowsRef.off();
 		};
 	};
 }
