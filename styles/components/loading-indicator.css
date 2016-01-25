@@ -1,5 +1,5 @@
 .loading-indicator {
-	position: absolute;
+	position: fixed;
 	top: 10px;
 	right: 10px;
 	padding: .4rem 1rem;
